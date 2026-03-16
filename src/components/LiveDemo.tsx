@@ -13,19 +13,19 @@ type TooltipData = {
 const viWords: Record<string, TooltipData> = {
   'đẹp': { badge: 'VI → EN', word: 'BEAUTIFUL', original: 'đẹp', definition: 'Pleasing to the senses or mind', example: 'The scenery was absolutely beautiful.', synonyms: 'gorgeous, stunning, exquisite', badgeColor: '#4DD9C0' },
   'vui': { badge: 'VI → EN', word: 'JOYFUL', original: 'vui', definition: 'Feeling great happiness', example: 'She felt joyful at the good news.', synonyms: 'elated, cheerful, delighted', badgeColor: '#4DD9C0' },
-  'công viên': { badge: 'VI → EN', word: 'PARK', original: 'công viên', definition: 'A public green area for recreation', example: 'They strolled through the park at dusk.', synonyms: 'garden, grounds, reserve', badgeColor: '#4DD9C0' },
+  'công viên': { badge: 'VI → EN', word: 'PARK', original: 'công viên', definition: 'A public green area for recreation', example: 'They strolled through the park at dusk.', synonyms: 'garden, grounds, reserve', badgeColor: '#4DD9C0' }
 };
 
 const enWords: Record<string, TooltipData> = {
   'really bad': { badge: 'UPGRADE', word: 'DELETERIOUS', original: 'really bad', definition: 'Causing harm or damage', example: 'The policy had a deleterious effect on students.', synonyms: 'detrimental, harmful, injurious', badgeColor: '#A78BFA' },
   'very tired': { badge: 'UPGRADE', word: 'ENERVATED', original: 'very tired', definition: 'Feeling completely drained of energy', example: 'He felt enervated after the long journey.', synonyms: 'exhausted, depleted, fatigued', badgeColor: '#A78BFA' },
-  'hard': { badge: 'UPGRADE', word: 'ARDUOUS', original: 'hard', definition: 'Involving great effort or difficulty', example: 'It was an arduous task to complete.', synonyms: 'grueling, strenuous, laborious', badgeColor: '#A78BFA' },
+  'hard': { badge: 'UPGRADE', word: 'ARDUOUS', original: 'hard', definition: 'Involving great effort or difficulty', example: 'It was an arduous task to complete.', synonyms: 'grueling, strenuous, laborious', badgeColor: '#A78BFA' }
 };
 
 const LiveDemo = () => {
   const [tab, setTab] = useState<'vi' | 'en'>('vi');
   const [puzzleMode, setPuzzleMode] = useState(false);
-  const [tooltip, setTooltip] = useState<{ data: TooltipData; x: number; y: number } | null>(null);
+  const [tooltip, setTooltip] = useState<{data: TooltipData;x: number;y: number;} | null>(null);
   const [guess, setGuess] = useState('');
   const [revealed, setRevealed] = useState(false);
   const hideTimer = useRef<number | null>(null);
@@ -48,15 +48,15 @@ const LiveDemo = () => {
     if (hideTimer.current) clearTimeout(hideTimer.current);
   }, []);
 
-  const HighlightWord = ({ text, data, color }: { text: string; data: TooltipData; color: 'teal' | 'purple' }) => (
-    <span
-      className={color === 'teal' ? 'highlight-teal' : 'highlight-purple'}
-      onMouseEnter={(e) => showTooltip(data, e)}
-      onMouseLeave={scheduleHide}
-    >
+  const HighlightWord = ({ text, data, color }: {text: string;data: TooltipData;color: 'teal' | 'purple';}) =>
+  <span
+    className={color === 'teal' ? 'highlight-teal' : 'highlight-purple'}
+    onMouseEnter={(e) => showTooltip(data, e)}
+    onMouseLeave={scheduleHide}>
+    
       {text}
-    </span>
-  );
+    </span>;
+
 
   const displayWord = (data: TooltipData) => {
     if (!puzzleMode) return data.word;
@@ -79,37 +79,37 @@ const LiveDemo = () => {
           {/* Tabs */}
           <div className="flex rounded-full overflow-hidden" style={{ border: '1px solid rgba(77,217,192,0.2)' }}>
             <button
-              onClick={() => { setTab('vi'); setTooltip(null); }}
+              onClick={() => {setTab('vi');setTooltip(null);}}
               className="px-6 py-3 font-bold text-sm transition-all duration-200 border-none cursor-pointer"
               style={{
                 background: tab === 'vi' ? 'rgba(77,217,192,0.15)' : 'transparent',
-                color: tab === 'vi' ? '#4DD9C0' : 'hsl(195, 20%, 60%)',
-              }}
-            >
+                color: tab === 'vi' ? '#4DD9C0' : 'hsl(195, 20%, 60%)'
+              }}>
+              
               Vietnamese Mode
             </button>
             <button
-              onClick={() => { setTab('en'); setTooltip(null); }}
+              onClick={() => {setTab('en');setTooltip(null);}}
               className="px-6 py-3 font-bold text-sm transition-all duration-200 border-none cursor-pointer"
               style={{
                 background: tab === 'en' ? 'rgba(167,139,250,0.15)' : 'transparent',
-                color: tab === 'en' ? '#A78BFA' : 'hsl(195, 20%, 60%)',
-              }}
-            >
+                color: tab === 'en' ? '#A78BFA' : 'hsl(195, 20%, 60%)'
+              }}>
+              
               English Upgrade Mode
             </button>
           </div>
 
           {/* Puzzle toggle */}
           <button
-            onClick={() => { setPuzzleMode(!puzzleMode); setRevealed(false); }}
+            onClick={() => {setPuzzleMode(!puzzleMode);setRevealed(false);}}
             className="flex items-center gap-3 px-5 py-3 rounded-full font-bold text-sm border-none cursor-pointer transition-all duration-200"
             style={{
               background: puzzleMode ? 'rgba(77,217,192,0.15)' : 'rgba(255,255,255,0.05)',
               color: puzzleMode ? '#4DD9C0' : 'hsl(195, 20%, 60%)',
-              border: `1px solid ${puzzleMode ? 'rgba(77,217,192,0.3)' : 'rgba(255,255,255,0.1)'}`,
-            }}
-          >
+              border: `1px solid ${puzzleMode ? 'rgba(77,217,192,0.3)' : 'rgba(255,255,255,0.1)'}`
+            }}>
+            
             🧩 Puzzle Mode: {puzzleMode ? 'ON' : 'OFF'}
           </button>
         </div>
@@ -126,8 +126,8 @@ const LiveDemo = () => {
           </div>
 
           <p className="text-lg sm:text-xl leading-relaxed text-foreground font-bold">
-            {tab === 'vi' ? (
-              <>
+            {tab === 'vi' ?
+            <>
                 Hôm nay thời tiết rất{' '}
                 <HighlightWord text="đẹp" data={viWords['đẹp']} color="teal" />{' '}
                 và tôi cảm thấy{' '}
@@ -135,9 +135,9 @@ const LiveDemo = () => {
                 khi đi dạo trong{' '}
                 <HighlightWord text="công viên" data={viWords['công viên']} color="teal" />{' '}
                 cùng gia đình.
-              </>
-            ) : (
-              <>
+              </> :
+
+            <>
                 The results were{' '}
                 <HighlightWord text="really bad" data={enWords['really bad']} color="purple" />{' '}
                 and the team felt{' '}
@@ -146,92 +146,92 @@ const LiveDemo = () => {
                 <HighlightWord text="hard" data={enWords['hard']} color="purple" />{' '}
                 work they had done all week.
               </>
-            )}
+            }
           </p>
 
           <p className="text-sm text-muted-foreground mt-6 font-bold">
-            👆 Hover over the highlighted words to see the magic
+            Hover over the highlighted words to see the magic
           </p>
         </div>
       </div>
 
       {/* Fixed tooltip */}
-      {tooltip && (
-        <div
-          onMouseEnter={cancelHide}
-          onMouseLeave={scheduleHide}
-          style={{
-            position: 'fixed',
-            left: `${tooltip.x}px`,
-            top: `${tooltip.y}px`,
-            transform: 'translateY(-100%)',
-            zIndex: 9999,
-            background: 'var(--tooltip-bg)',
-            border: `1px solid ${tooltip.data.badgeColor}`,
-            borderRadius: '16px',
-            padding: '20px',
-            width: '320px',
-            maxWidth: '90vw',
-            animation: 'tooltipIn 0.2s ease-out',
-            pointerEvents: 'auto',
-          }}
-        >
+      {tooltip &&
+      <div
+        onMouseEnter={cancelHide}
+        onMouseLeave={scheduleHide}
+        style={{
+          position: 'fixed',
+          left: `${tooltip.x}px`,
+          top: `${tooltip.y}px`,
+          transform: 'translateY(-100%)',
+          zIndex: 9999,
+          background: 'var(--tooltip-bg)',
+          border: `1px solid ${tooltip.data.badgeColor}`,
+          borderRadius: '16px',
+          padding: '20px',
+          width: '320px',
+          maxWidth: '90vw',
+          animation: 'tooltipIn 0.2s ease-out',
+          pointerEvents: 'auto'
+        }}>
+        
           <span
-            className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3"
-            style={{
-              background: `${tooltip.data.badgeColor}22`,
-              color: tooltip.data.badgeColor,
-              border: `1px solid ${tooltip.data.badgeColor}44`,
-            }}
-          >
+          className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3"
+          style={{
+            background: `${tooltip.data.badgeColor}22`,
+            color: tooltip.data.badgeColor,
+            border: `1px solid ${tooltip.data.badgeColor}44`
+          }}>
+          
             {tooltip.data.badge}
           </span>
 
-          {puzzleMode && !revealed ? (
-            <>
+          {puzzleMode && !revealed ?
+        <>
               <div className="text-[28px] font-bold text-foreground mb-2 tracking-widest">
                 {'_ '.repeat(tooltip.data.word.length)}
               </div>
               <input
-                type="text"
-                placeholder="Type your guess..."
-                value={guess}
-                onChange={(e) => setGuess(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg bg-muted text-foreground font-bold text-sm border-none outline-none mb-3"
-                style={{ border: `1px solid ${tooltip.data.badgeColor}33` }}
-                autoFocus
-              />
+            type="text"
+            placeholder="Type your guess..."
+            value={guess}
+            onChange={(e) => setGuess(e.target.value)}
+            className="w-full px-4 py-2 rounded-lg bg-muted text-foreground font-bold text-sm border-none outline-none mb-3"
+            style={{ border: `1px solid ${tooltip.data.badgeColor}33` }}
+            autoFocus />
+          
               <button
-                onClick={() => setRevealed(true)}
-                className="px-5 py-2 rounded-lg font-bold text-sm border-none cursor-pointer transition-all duration-200"
-                style={{
-                  background: tooltip.data.badgeColor,
-                  color: '#0A0F1E',
-                }}
-              >
+            onClick={() => setRevealed(true)}
+            className="px-5 py-2 rounded-lg font-bold text-sm border-none cursor-pointer transition-all duration-200"
+            style={{
+              background: tooltip.data.badgeColor,
+              color: '#0A0F1E'
+            }}>
+            
                 Reveal ✨
               </button>
-              {revealed && (
-                <div className="text-[28px] font-bold text-foreground mt-2" style={{ animation: 'revealFlash 0.5s ease-out' }}>
+              {revealed &&
+          <div className="text-[28px] font-bold text-foreground mt-2" style={{ animation: 'revealFlash 0.5s ease-out' }}>
                   {tooltip.data.word}
                 </div>
-              )}
-            </>
-          ) : (
-            <div
-              className="text-[28px] font-bold text-foreground mb-1"
-              style={revealed ? { animation: 'revealFlash 0.5s ease-out' } : {}}
-            >
+          }
+            </> :
+
+        <div
+          className="text-[28px] font-bold text-foreground mb-1"
+          style={revealed ? { animation: 'revealFlash 0.5s ease-out' } : {}}>
+          
               {displayWord(tooltip.data)}
             </div>
-          )}
+        }
 
           <div className="text-sm text-muted-foreground font-bold mt-2">
-            {tooltip.data.badge.includes('VI') ? (
-              <span>Vietnamese: <span className="text-foreground">{tooltip.data.original}</span></span>
-            ) : (
-              <span>Upgrade from: <span className="text-foreground">"{tooltip.data.original}"</span></span>
-            )}
+            {tooltip.data.badge.includes('VI') ?
+          <span>Vietnamese: <span className="text-foreground">{tooltip.data.original}</span></span> :
+
+          <span>Upgrade from: <span className="text-foreground">"{tooltip.data.original}"</span></span>
+          }
           </div>
           <div className="text-sm text-foreground font-bold mt-3">{tooltip.data.definition}</div>
           <div className="text-sm text-muted-foreground font-bold mt-2 italic">"{tooltip.data.example}"</div>
@@ -239,9 +239,9 @@ const LiveDemo = () => {
             Synonyms: <span style={{ color: tooltip.data.badgeColor }}>{tooltip.data.synonyms}</span>
           </div>
         </div>
-      )}
-    </section>
-  );
+      }
+    </section>);
+
 };
 
 export default LiveDemo;

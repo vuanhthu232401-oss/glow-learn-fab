@@ -1,13 +1,13 @@
 import Jellyfish from './Jellyfish';
 
-const HeroSection = () => (
-  <section
-    id="hero"
-    className="relative min-h-screen flex items-center pt-20"
-    style={{ overflow: 'visible' }}
-  >
+const HeroSection = () =>
+<section
+  id="hero"
+  className="relative min-h-screen flex items-center pt-20"
+  style={{ overflow: 'visible' }}>
+  
     <div className="section-container w-full" style={{ overflow: 'visible' }}>
-      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-0" style={{ overflow: 'visible' }}>
+      <div className="flex-col lg:flex-row gap-12 lg:gap-0 flex items-center justify-start" style={{ overflow: 'visible' }}>
         {/* Left */}
         <div className="flex-1 z-20 text-center lg:text-left">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-foreground mb-6">
@@ -18,9 +18,9 @@ const HeroSection = () => (
             Silly Jelly transforms your daily browsing into IELTS & SAT vocabulary mastery — automatically.
           </p>
           <button
-            className="cta-button text-lg px-8 py-4"
-            style={{ animation: 'pulseGlow 3s ease-in-out infinite' }}
-          >
+          className="cta-button text-lg px-8 py-4"
+          style={{ animation: 'pulseGlow 3s ease-in-out infinite' }}>
+          
             🪼 Add to Chrome — Free
           </button>
         </div>
@@ -31,7 +31,7 @@ const HeroSection = () => (
         </div>
       </div>
     </div>
-  </section>
-);
+  </section>;
+
 
 export default HeroSection;
