@@ -1,49 +1,15 @@
 const AuroraBackground = () => (
-  <div className="aurora-bg">
-    <div
-      className="aurora-blob"
-      style={{
-        width: '600px',
-        height: '600px',
-        background: 'radial-gradient(circle, rgba(77,217,192,0.25) 0%, transparent 70%)',
-        top: '10%',
-        left: '10%',
-        animation: 'auroraMove1 20s ease-in-out infinite',
-      }}
-    />
-    <div
-      className="aurora-blob"
-      style={{
-        width: '500px',
-        height: '500px',
-        background: 'radial-gradient(circle, rgba(106,184,247,0.2) 0%, transparent 70%)',
-        top: '40%',
-        right: '5%',
-        animation: 'auroraMove2 25s ease-in-out infinite',
-      }}
-    />
-    <div
-      className="aurora-blob"
-      style={{
-        width: '400px',
-        height: '400px',
-        background: 'radial-gradient(circle, rgba(167,139,250,0.15) 0%, transparent 70%)',
-        bottom: '10%',
-        left: '30%',
-        animation: 'auroraMove3 18s ease-in-out infinite',
-      }}
-    />
-    <div
-      className="aurora-blob"
-      style={{
-        width: '350px',
-        height: '350px',
-        background: 'radial-gradient(circle, rgba(77,217,192,0.15) 0%, transparent 70%)',
-        top: '60%',
-        left: '60%',
-        animation: 'auroraMove1 22s ease-in-out infinite reverse',
-      }}
-    />
+  <div className="ocean-bg">
+    {/* Flowing gradient layers */}
+    <div className="ocean-layer ocean-layer-1" />
+    <div className="ocean-layer ocean-layer-2" />
+    <div className="ocean-layer ocean-layer-3" />
+    {/* Soft wave overlays */}
+    <svg className="ocean-waves" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1440 600">
+      <path className="ocean-wave wave-1" d="M0,300 C360,220 720,380 1080,280 C1260,240 1380,300 1440,300 L1440,600 L0,600Z" />
+      <path className="ocean-wave wave-2" d="M0,350 C240,290 480,410 720,330 C960,250 1200,370 1440,320 L1440,600 L0,600Z" />
+      <path className="ocean-wave wave-3" d="M0,380 C300,340 600,420 900,360 C1100,320 1300,390 1440,360 L1440,600 L0,600Z" />
+    </svg>
   </div>
 );
 
