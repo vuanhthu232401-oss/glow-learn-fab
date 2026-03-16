@@ -26,7 +26,7 @@ const HeroSection = () =>
         </div>
 
         {/* Right — Jellyfish */}
-        <div className="flex-1 relative" style={{ overflow: 'visible', minHeight: '400px' }}>
+        <div className="flex-1 relative" style={{ overflow: 'visible', minHeight: '460px' }}>
           <Jellyfish />
         </div>
       </div>
