@@ -110,7 +110,7 @@ const LiveDemo = () => {
               border: `1px solid ${puzzleMode ? 'rgba(77,217,192,0.3)' : 'rgba(255,255,255,0.1)'}`
             }}>
             
-            🧩 Puzzle Mode: {puzzleMode ? 'ON' : 'OFF'}
+            Puzzle Mode: {puzzleMode ? 'ON' : 'OFF'}
           </button>
         </div>
 
