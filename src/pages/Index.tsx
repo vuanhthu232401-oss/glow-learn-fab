@@ -1,14 +1,23 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import AuroraBackground from '@/components/AuroraBackground';
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/HeroSection';
+import HowItWorks from '@/components/HowItWorks';
+import LiveDemo from '@/components/LiveDemo';
+import FeaturesSection from '@/components/FeaturesSection';
+import ForStudents from '@/components/ForStudents';
+import Footer from '@/components/Footer';
 
-const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
-};
+const Index = () => (
+  <div className="relative min-h-screen" style={{ overflow: 'visible' }}>
+    <AuroraBackground />
+    <Navbar />
+    <HeroSection />
+    <HowItWorks />
+    <LiveDemo />
+    <FeaturesSection />
+    <ForStudents />
+    <Footer />
+  </div>
+);
 
 export default Index;
