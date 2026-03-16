@@ -12,14 +12,7 @@ const ForStudents = () => (
         {/* IELTS */}
         <div
           className="glass-card p-10 text-center relative"
-          style={{
-            borderImage: 'linear-gradient(135deg, #4DD9C0, #6AB8F7) 1',
-            borderWidth: '1px',
-            borderStyle: 'solid',
-            borderRadius: '1rem',
-            borderImage: 'none',
-            border: '1px solid rgba(77,217,192,0.3)',
-          }}
+          style={{ border: '1px solid rgba(77,217,192,0.3)' }}
         >
           <div className="text-4xl mb-4">📚</div>
           <h3 className="text-2xl font-bold text-foreground mb-3">IELTS Learners</h3>
